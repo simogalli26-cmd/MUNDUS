@@ -84,18 +84,21 @@ Ogni capitolo è fatto di sezioni, e ogni sezione di blocchi (`t` è il tipo):
 3. Se ti servono immagini o luoghi nuovi, aggiungili in `data/images.js` e `data/places.js`.
 4. Controlla i dati: `node tools/check-data.js` (segnala eventi duplicati, immagini, luoghi o termini mancanti).
 
-## Pubblicazione (GitHub + Vercel)
+## Pubblicazione (GitHub Pages)
 
-Il sito è statico: Vercel lo pubblica così com'è, senza comandi di build.
+Repository: <https://github.com/simogalli26-cmd/MUNDUS> · sito: <https://simogalli26-cmd.github.io/MUNDUS/>
 
-1. Crea un repository vuoto su GitHub (per esempio `mundus`).
-2. Dalla cartella del progetto:
-   ```
-   git remote add origin https://github.com/UTENTE/mundus.git
-   git push -u origin main
-   ```
-3. Su [vercel.com](https://vercel.com) → *Add New… → Project* → importa il repository. *Framework preset*: **Other**; nessun comando di build; *Output directory*: lasciare vuoto (la radice).
-4. Ogni `git push` sul ramo `main` pubblica automaticamente la nuova versione sullo stesso indirizzo.
+Il sito è statico e GitHub Pages lo pubblica così com'è (il file `.nojekyll` evita ogni elaborazione).
+Ogni modifica caricata sul ramo `main` aggiorna lo stesso indirizzo in circa un minuto:
+
+```
+git add -A
+git commit -m "Descrizione della modifica"
+git push
+```
+
+Impostazione di Pages (già fatta): *Settings → Pages → Build and deployment → Deploy from a branch → main / (root)*.
+In alternativa si può collegare lo stesso repository a Vercel (*Add New → Project*, preset **Other**, nessun comando di build).
 
 ## Fonti
 
