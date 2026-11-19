@@ -70,10 +70,13 @@
     });
     return d;
   }
+  /* prima la copia locale (data/land.js, creata da tools/build_land.js), poi la rete come riserva */
   function loadLand() {
     if (M._land) return Promise.resolve(M._land);
-    return fetch(LAND_URL).then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-      .then((topo) => { M._land = landPath(topoRings(topo)); return M._land; });
+    const local = M.landPath ? Promise.resolve() : new Promise((res, rej) => M.loadScripts(['data/land.js'], (failed) => (failed.length || !M.landPath ? rej() : res())));
+    return local.then(() => (M._land = M.landPath))
+      .catch(() => fetch(LAND_URL).then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then((topo) => { M._land = landPath(topoRings(topo)); return M._land; }));
   }
   function graticule() {
     let d = '';

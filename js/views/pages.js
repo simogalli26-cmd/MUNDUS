@@ -168,7 +168,7 @@
           <div style="overflow-x:auto"><table class="credits-table"><thead><tr><th></th><th>Soggetto</th><th>Autore, data, licenza</th><th>File</th></tr></thead><tbody>
             ${imgs.map(([k, im]) => `<tr><td><img src="${esc(M.imgSrc(im, 330))}" alt="" loading="lazy" referrerpolicy="no-referrer"></td><td>${fmt(im.cap)}</td><td>${fmt(im.credit)}</td><td><a href="${esc(im.page)}" target="_blank" rel="noopener">Commons</a></td></tr>`).join('')}
           </tbody></table></div>
-          <div class="section__head" style="margin-top:70px"><div><span class="eyebrow">Dati</span><h2 style="color:var(--ink)">Mappa e caratteri</h2></div><p>Coste da Natural Earth tramite il pacchetto <em>world-atlas</em> (pubblico dominio); caratteri Cormorant Garamond, Source Serif 4 e Inter (SIL Open Font License) da Google Fonts.</p></div>
+          <div class="section__head" style="margin-top:70px"><div><span class="eyebrow">Dati</span><h2 style="color:var(--ink)">Mappa e caratteri</h2></div><p>Coste da Natural Earth tramite il pacchetto <em>world-atlas</em> (pubblico dominio), salvate nel progetto in data/land.js; caratteri Cormorant Garamond, Source Serif 4 e Inter (SIL Open Font License), scaricati da Google Fonts e salvati in assets/fonts.</p></div>
         </div></div>`,
     };
   };

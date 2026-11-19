@@ -16,9 +16,15 @@ Otto capitoli, una linea del tempo proporzionale, un atlante con le coste reali,
   poi apri `http://localhost:8790` in Chrome o Edge.
 - **Doppio clic su `index.html`**: funziona anche così, perché il sito non usa moduli né compilazione.
 
-Le immagini sono salvate nel progetto (`assets/img/`, in formato WebP), quindi si vedono anche senza Internet. La connessione serve ancora per i caratteri (Google Fonts: senza rete si usano quelli di sistema) e per le coste dell'atlante (pacchetto *world-atlas* da jsDelivr: senza rete l'atlante mostra i luoghi su un reticolo geografico).
+Il sito funziona **anche senza Internet**: immagini (`assets/img/`, WebP), caratteri (`assets/fonts/`) e coste dell'atlante (`data/land.js`) sono salvati nel progetto. Servono solo per aggiornarli:
 
-Le copie locali si creano con `python tools/fetch_images.py` (serve Pillow). Se una copia manca, il sito carica da solo l'originale da Wikimedia Commons.
+| Comando | Che cosa fa |
+|---|---|
+| `python tools/fetch_images.py` | salva le immagini nuove di `data/images.js` (serve Pillow) |
+| `python tools/fetch_fonts.py` | riscarica i caratteri e riscrive `css/fonts.css` |
+| `node tools/build_land.js` | ricrea le coste dell'atlante |
+
+Se una copia locale manca, il sito ripiega da solo sulla versione online.
 
 ## Come presentarlo
 
