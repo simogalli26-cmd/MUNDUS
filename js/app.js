@@ -4,6 +4,7 @@
   const M = window.MUNDUS;
   const main = document.getElementById('view');
   let current = null;
+  const curtain = document.getElementById('curtain');
 
   function parse() { return location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent); }
 
@@ -38,7 +39,17 @@
       return;
     }
     const v = resolve(parts);
+    if (current && !M.reduced() && curtain) {
+      current = v;
+      curtain.className = 'is-cover';
+      setTimeout(() => { render(v); curtain.className = 'is-reveal'; setTimeout(() => { curtain.className = ''; }, 650); }, 420);
+      return;
+    }
     current = v;
+    render(v);
+  }
+
+  function render(v) {
     document.title = v.title;
     document.body.dataset.view = v.view;
     M.ui.currentChapter = v.chapter || null;
@@ -48,6 +59,7 @@
     const root = main.firstElementChild;
     main.classList.remove('is-entering'); void main.offsetWidth; main.classList.add('is-entering');
     if (v.mount) v.mount(root);
+    M.motion.enhance(root);
     M.ui.reveal(root);
     window.scrollTo({ top: 0, behavior: 'instant' });
     const target = v.section ? `sec-${v.section}` : v.target;
@@ -61,6 +73,8 @@
     if (failed.length) console.warn('File di dati non caricati:', failed);
     M.ui.shell();
     M.ui.bindComponents(main);
+    M.motion.bindTilt();
+    M.motion.bindScroll();
     window.addEventListener('hashchange', route);
     /* un clic su un collegamento uguale all'indirizzo attuale (es. la stessa sezione) deve comunque funzionare */
     document.addEventListener('click', (e) => {

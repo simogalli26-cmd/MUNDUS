@@ -14,13 +14,13 @@
 
     const html = `
       <header class="ch-hero theme-dark">
-        <div class="ch-hero__num" aria-hidden="true">${ch.roman}</div>
+        <div class="ch-hero__num" aria-hidden="true" data-parallax="-0.35">${ch.roman}</div>
         <div class="wrap ch-hero__grid">
           <div class="ch-hero__text">
             <span class="eyebrow">Capitolo ${ch.roman} · ${esc(ch.axis)}</span>
             <h1>${esc(ch.title)}</h1>
             <div class="ch-hero__kicker">${esc(ch.kicker)}</div>
-            <div class="ch-hero__meta"><span><b>Periodo</b>${esc(ch.period)}</span><span><b>Eventi</b>${evs.length}</span><span><b>Luoghi</b>${places.length}</span></div>
+            <div class="ch-hero__meta"><span><b>Periodo</b>${esc(ch.period)}</span><span><b>Eventi</b><span data-count="${evs.length}">${evs.length}</span></span><span><b>Luoghi</b><span data-count="${places.length}">${places.length}</span></span></div>
             <p class="ch-hero__lead">${fmt(ch.lead)}</p>
             <div class="ch-hero__actions">
               <button type="button" class="btn btn--solid" data-act="present">Presenta il capitolo</button>

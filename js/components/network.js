@@ -35,7 +35,7 @@
         <svg class="net__svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Mappa dei collegamenti tra i capitoli">
           <defs><marker id="net-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#cdab68"/></marker></defs>
           ${LANES.map(([t, y]) => `<rect class="net__lane" x="8" y="${y - 62}" width="${W - 16}" height="124" rx="2"/><text class="net__lanelbl" x="22" y="${y - 44}">${esc(t)}</text>`).join('')}
-          ${links.map((l, i) => `<g data-link="${i}"><path class="net__link" d="${edge(l.from, l.to, i)}" marker-end="url(#net-arrow)"/><path class="net__hit" d="${edge(l.from, l.to, i)}"><title>${esc(l.title)}</title></path></g>`).join('')}
+          ${links.map((l, i) => `<g data-link="${i}"><path class="net__link" style="--d:${(0.3 + i * 0.09).toFixed(2)}s" d="${edge(l.from, l.to, i)}" marker-end="url(#net-arrow)"/><path class="net__hit" d="${edge(l.from, l.to, i)}"><title>${esc(l.title)}</title></path></g>`).join('')}
           ${M.chapters.filter((c) => POS[c.id]).map((c) => {
             const [x, y] = POS[c.id];
             return `<g class="net__node" data-node="${c.id}" tabindex="0" role="button" aria-label="Capitolo ${c.roman}: ${esc(c.title)}" transform="translate(${x - NW / 2} ${y - NH / 2})">

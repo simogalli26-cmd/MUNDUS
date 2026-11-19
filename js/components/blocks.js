@@ -17,7 +17,7 @@
     <div class="chain" data-chain="${esc(c.id)}" data-i="0">
       <div class="chain__head"><span class="eyebrow">Nesso causa → effetto</span><h3>${fmt(c.title)}</h3>${c.intro ? `<p class="chain__intro">${fmt(c.intro)}</p>` : ''}</div>
       <ol class="chain__track">${c.nodes.map((nd, i) => `
-        <li class="chain__step${i === 0 ? ' is-active' : ''}"><button type="button" class="chain__node" data-i="${i}" aria-pressed="${i === 0}">
+        <li class="chain__step${i === 0 ? ' is-active' : ''}" style="--i:${i}"><button type="button" class="chain__node" data-i="${i}" aria-pressed="${i === 0}">
           <span class="chain__i">${roman(i + 1)}</span><span class="chain__k">${fmt(nd.k)}</span>${nd.y ? `<span class="chain__y">${esc(nd.y)}</span>` : ''}
         </button></li>`).join('')}
       </ol>
@@ -180,7 +180,7 @@
     focus: (b) => row(`<aside class="focus reveal"><span class="eyebrow">Approfondimento</span><h3>${fmt(b.title)}</h3>
       ${b.x ? M.paras(b.x) : ''}${b.reasons ? `<ol class="focus__reasons">${b.reasons.map((r) => `<li><span>${fmt(r)}</span></li>`).join('')}</ol>` : ''}${b.end ? `<p style="margin-top:1.2em">${fmt(b.end)}</p>` : ''}</aside>`),
     precise: (b) => row(`<div class="precise"><div class="precise__label">Nota di precisione</div><ul>${b.items.map((x) => `<li>${fmt(x)}</li>`).join('')}</ul></div>`),
-    concepts: (b) => row(`<div class="concepts">${b.items.map((c) => `<div class="concept"><div class="concept__k">${fmt(c.k)}</div>${c.s ? `<span class="concept__s">${esc(c.s)}</span>` : ''}<p>${fmt(c.x)}</p></div>`).join('')}</div>`, null, true),
+    concepts: (b) => row(`<div class="concepts reveal">${b.items.map((c, i) => `<div class="concept" style="--i:${i}"><div class="concept__k">${fmt(c.k)}</div>${c.s ? `<span class="concept__s">${esc(c.s)}</span>` : ''}<p>${fmt(c.x)}</p></div>`).join('')}</div>`, null, true),
     cmp2: (b) => row(`<div class="concepts concepts--2">${[b.a, b.b].map((c) => `<div class="concept"><div class="concept__k">${fmt(c.k)}</div><ul class="list">${c.items.map((x) => `<li>${fmt(x)}</li>`).join('')}</ul></div>`).join('')}</div>`, null, true),
     figure: (b) => row(M.figure(b.img, { size: b.size, cap: b.cap }), null, b.size === 'wide'),
     figpair: (b) => row(`<div class="figpair">${b.imgs.map((k) => M.figure(k)).join('')}</div>`, null, true),

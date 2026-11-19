@@ -11,6 +11,7 @@
     const threads = (s.threads || []).map((id) => M.blocks[id]).filter(Boolean);
     const html = `
       <section class="hero theme-dark" aria-labelledby="hero-title">
+        <div class="hero__globe"><span class="hero__globe-hint">Trascina per ruotare</span><canvas role="img" aria-label="Globo con i luoghi delle date fondamentali"></canvas><div class="hero__globe-cap" aria-live="polite"><a href="#/cronologia"><b></b><span></span></a></div></div>
         <div class="hero__map" aria-hidden="true"><img src="${esc(M.imgSrc(map, 1280))}" alt="" fetchpriority="high" referrerpolicy="no-referrer"></div>
         <div class="hero__inner">
           <span class="eyebrow hero__kicker">Atlante storico interattivo · 910 – 1226</span>
@@ -26,7 +27,7 @@
         </div>
         <p class="hero__cap">${fmt(map.cap)}</p>
         <nav class="ribbon" aria-label="Date fondamentali"><div class="ribbon__track">
-          ${ribbon.map((e) => `<a href="#/cronologia/${e.id}" title="${esc(e.title)}"><span class="ribbon__y">${e.y}</span><span class="ribbon__t">${esc(e.title)}</span></a>`).join('')}
+          ${ribbon.map((e, i) => `<a style="--i:${i}" href="#/cronologia/${e.id}" title="${esc(e.title)}"><span class="ribbon__y">${e.y}</span><span class="ribbon__t">${esc(e.title)}</span></a>`).join('')}
         </div></nav>
       </section>
 
@@ -78,18 +79,37 @@
         <div class="wrap">
           <div class="section__head reveal"><div><span class="eyebrow">Strumenti</span><h2 id="strumenti">Esplorare, confrontare, ripassare</h2></div><p>Gli stessi dati, guardati da punti di vista diversi.</p></div>
           <div class="tools reveal">
-            <a class="tool" href="#/cronologia"><span class="tool__k">${M.events.length} eventi</span><span class="tool__t">Cronologia</span><p>Una linea del tempo proporzionale dal 910 al 1434, filtrabile per capitolo.</p><span class="tool__go">Apri →</span></a>
+            <a class="tool" href="#/cronologia"><span class="tool__k"><span data-count="${M.events.length}">${M.events.length}</span> eventi</span><span class="tool__t">Cronologia</span><p>Una linea del tempo proporzionale dal 910 al 1434, filtrabile per capitolo.</p><span class="tool__go">Apri →</span></a>
             <a class="tool" href="#/atlante"><span class="tool__k">Mappa interattiva</span><span class="tool__t">Atlante</span><p>I luoghi degli eventi su una carta dell\'Europa e del Mediterraneo, da Bruges a Damietta.</p><span class="tool__go">Apri →</span></a>
-            <a class="tool" href="#/nessi"><span class="tool__k">${M.links.length} collegamenti</span><span class="tool__t">Nessi</span><p>La rete che lega i capitoli: cause, continuità e contrasti.</p><span class="tool__go">Apri →</span></a>
+            <a class="tool" href="#/nessi"><span class="tool__k"><span data-count="${M.links.length}">${M.links.length}</span> collegamenti</span><span class="tool__t">Nessi</span><p>La rete che lega i capitoli: cause, continuità e contrasti.</p><span class="tool__go">Apri →</span></a>
             <a class="tool" href="#/confronti"><span class="tool__k">${M.compares.length} confronti</span><span class="tool__t">Confronti</span><p>Ottone e Gregorio, Cluny e Cîteaux, consoli e podestà, Valdo e Francesco.</p><span class="tool__go">Apri →</span></a>
-            <a class="tool" href="#/fonti"><span class="tool__k">${M.sources.length} documenti</span><span class="tool__t">Fonti</span><p>Estratti dal Dictatus Papae, dal Concordato di Worms, dalla Pace di Costanza, da Francesco e da Dante, con il testo originale.</p><span class="tool__go">Apri →</span></a>
+            <a class="tool" href="#/fonti"><span class="tool__k"><span data-count="${M.sources.length}">${M.sources.length}</span> documenti</span><span class="tool__t">Fonti</span><p>Estratti dal Dictatus Papae, dal Concordato di Worms, dalla Pace di Costanza, da Francesco e da Dante, con il testo originale.</p><span class="tool__go">Apri →</span></a>
             <a class="tool" href="#/studio"><span class="tool__k">Ripasso</span><span class="tool__t">Modalità studio</span><p>Domande da interrogazione, verifiche lampo, flashcard e trappole da evitare.</p><span class="tool__go">Apri →</span></a>
           </div>
         </div>
       </section>`;
     return {
       title: `${s.title} — ${s.subtitle}`, view: 'home', theme: 'dark', html,
-      mount(root) { M.qs('[data-act="present"]', root).addEventListener('click', () => M.present.open()); },
+      mount(root) {
+        M.qs('[data-act="present"]', root).addEventListener('click', () => M.present.open());
+        /* globo: i luoghi delle date fondamentali, visitati uno dopo l'altro */
+        const stops = ribbon.filter((e) => M.places[e.place]);
+        const ids = [...new Set([...stops.map((e) => e.place), ...Object.keys(M.places).filter((k) => M.places[k].major)])];
+        const places = ids.map((id) => ({ id, lon: M.places[id].lon, lat: M.places[id].lat, label: M.places[id].name }));
+        const tour = stops.map((e) => ids.indexOf(e.place));
+        const cap = M.qs('.hero__globe-cap', root);
+        let k = 0;
+        M.motion.globe(M.qs('.hero__globe canvas', root), {
+          places, tour, lon: 12, lat: 40,
+          onFocus: () => {
+            const e = stops[k % stops.length]; k++;
+            const a = M.qs('a', cap); a.href = `#/cronologia/${e.id}`;
+            M.qs('b', a).textContent = e.y; M.qs('span', a).textContent = `${e.title} · ${M.places[e.place].name}`;
+            places[ids.indexOf(e.place)].label = `${e.y} · ${M.places[e.place].name}`;
+            cap.classList.remove('is-swapping'); void cap.offsetWidth; cap.classList.add('is-swapping');
+          },
+        });
+      },
     };
   };
 })();

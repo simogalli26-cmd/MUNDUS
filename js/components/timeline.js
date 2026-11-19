@@ -74,13 +74,13 @@
       canvas.innerHTML = `
         <div class="tl__eras" style="bottom:${46 + 16}px">${eraPos.map(({ c, x1, x2, r }) => `<span class="tl__era" data-ch="${c.id}" style="left:${x1}px;width:${Math.max(4, x2 - x1)}px;bottom:${r * 18}px"><span>${c.roman} · ${esc(c.title)}</span></span>`).join('')}</div>
         <div class="tl__axis">${ticks}</div>
-        ${evs.map((e) => {
-          const p = pos[e.id];
+        ${evs.map((e, idx) => {
+          const p = pos[e.id]; const dl = `--d:${Math.min(1.4, idx * 0.012).toFixed(3)}s`;
           const lbl = `<span class="tl__dot"></span><span class="tl__lbl"><b>${e.y}</b> ${esc(e.title)}</span>`;
-          if (p.lane < 0) return `<button type="button" class="tl__ev is-dot${e.major ? ' is-major' : ''}" data-id="${e.id}" data-ch="${e.chapter}" style="left:${p.x}px;top:${axisTop - 8}px" aria-label="${esc(e.date + ': ' + e.title)}">${lbl}</button>`;
+          if (p.lane < 0) return `<button type="button" class="tl__ev is-dot${e.major ? ' is-major' : ''}" data-id="${e.id}" data-ch="${e.chapter}" style="left:${p.x}px;top:${axisTop - 8}px;${dl}" aria-label="${esc(e.date + ': ' + e.title)}">${lbl}</button>`;
           const top = 20 + (lanes - 1 - p.lane) * LANE;
           const stem = axisTop - top - 30;
-          return `<button type="button" class="tl__ev${e.major ? ' is-major' : ''}" data-id="${e.id}" data-ch="${e.chapter}" style="left:${p.x}px;top:${top}px;--stem:${stem}px" aria-label="${esc(e.date + ': ' + e.title)}">${lbl}</button>`;
+          return `<button type="button" class="tl__ev${e.major ? ' is-major' : ''}" data-id="${e.id}" data-ch="${e.chapter}" style="left:${p.x}px;top:${top}px;--stem:${stem}px;${dl}" aria-label="${esc(e.date + ': ' + e.title)}">${lbl}</button>`;
         }).join('')}`;
       applyFilter();
       if (st.cur) mark(st.cur, false);

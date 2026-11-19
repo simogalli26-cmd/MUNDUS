@@ -29,7 +29,7 @@
   function slideHTML(s, i) {
     const ch = s.ch;
     switch (s.kind) {
-      case 'cover': return `<section class="slide s-cover" data-i="${i}"><div class="slide__bg"><img src="${img('mappamundi')}" alt="" referrerpolicy="no-referrer"></div>
+      case 'cover': return `<section class="slide s-cover" data-i="${i}"><div class="slide__bg"><img src="${img('mappamundi')}" alt="" referrerpolicy="no-referrer"></div><canvas class="s-globe" aria-hidden="true"></canvas>
         <div><div class="s-eyebrow" style="justify-content:center">Atlante storico interattivo</div><div class="s-mega">MUNDUS</div>
         <div class="s-sub">${esc(M.site.subtitle)}</div><p class="s-text">${esc(M.site.tagline)}</p></div></section>`;
       case 'chapter': return `<section class="slide s-chapter" data-i="${i}">
@@ -122,11 +122,15 @@
         <h2>Vai al capitolo</h2>
         <ol>${M.chapters.map((c) => `<li><button type="button" data-ch="${c.id}"><b>${c.roman}</b><span>${esc(c.title)}</span><small>${esc(c.period)}</small></button></li>`).join('')}</ol>
       </div>`;
+    el.insertAdjacentHTML('afterbegin', '<canvas class="dust" aria-hidden="true"></canvas>');
     el.hidden = false; el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', 'Modalità presentazione');
     document.documentElement.style.overflow = 'hidden';
     const start = chapterId ? deck.findIndex((s) => s.ch && s.ch.id === chapterId) : 0;
     go(start < 0 ? 0 : start);
     el.addEventListener('click', onClick);
+    M.motion.dust(M.qs('canvas.dust', el), { n: 80 });
+    const gl = M.qs('.s-globe', el);
+    if (gl) M.motion.globe(gl, { lon: 12, lat: 40, scale: 0.46, places: Object.values(M.places).filter((p) => p.major).map((p) => ({ lon: p.lon, lat: p.lat })) });
     document.addEventListener('keydown', onKey);
     M.qs('[data-p="next"]', el).focus();
   }
