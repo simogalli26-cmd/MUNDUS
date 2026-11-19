@@ -16,7 +16,9 @@ Otto capitoli, una linea del tempo proporzionale, un atlante con le coste reali,
   poi apri `http://localhost:8790` in Chrome o Edge.
 - **Doppio clic su `index.html`**: funziona anche così, perché il sito non usa moduli né compilazione.
 
-Serve la connessione a Internet per i caratteri (Google Fonts), le immagini (Wikimedia Commons) e le coste dell'atlante (pacchetto *world-atlas* da jsDelivr). Senza connessione il testo resta leggibile, le immagini mancanti diventano riquadri con la didascalia e l'atlante mostra i luoghi su un reticolo geografico.
+Le immagini sono salvate nel progetto (`assets/img/`, in formato WebP), quindi si vedono anche senza Internet. La connessione serve ancora per i caratteri (Google Fonts: senza rete si usano quelli di sistema) e per le coste dell'atlante (pacchetto *world-atlas* da jsDelivr: senza rete l'atlante mostra i luoghi su un reticolo geografico).
+
+Le copie locali si creano con `python tools/fetch_images.py` (serve Pillow). Se una copia manca, il sito carica da solo l'originale da Wikimedia Commons.
 
 ## Come presentarlo
 

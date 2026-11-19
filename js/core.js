@@ -22,7 +22,7 @@
     M.chapters.push(def);
     M.byId[def.id] = def;
   };
-  M.addImages = (o) => Object.assign(M.images, o);
+  M.addImages = (o) => Object.entries(o).forEach(([k, v]) => { v.key = k; M.images[k] = v; });
   M.addPlaces = (o) => Object.assign(M.places, o);
   M.addLinks = (arr) => M.links.push(...arr);
 
@@ -60,10 +60,23 @@
 
   /* ---------- immagini ---------- */
   M.img = (key) => M.images[key] || null;
-  M.imgSrc = (im, w) => {
+  /* Copie locali in assets/img/ (create da tools/fetch_images.py): <chiave>.webp e <chiave>-s.webp.
+     Se una copia manca, l'errore di caricamento fa passare all'originale su Wikimedia (vedi ui.js).
+     Con local: false in data/images.js un'immagine usa sempre l'indirizzo remoto. */
+  M.imgRemote = (im, w) => {
     if (!im) return '';
     if (w && im.thumb && im.w > w) return im.thumb.replace(/\/\d+px-/, `/${w}px-`);
     return im.src || im.thumb;
+  };
+  M.imgSrc = (im, w) => {
+    if (!im) return '';
+    if (im.local === false || !im.key) return M.imgRemote(im, w);
+    return `assets/img/${im.key}${w && w <= 480 ? '-s' : ''}.webp`;
+  };
+  M.imgFallback = (src) => {
+    const m = /assets\/img\/([\w-]+?)(-s)?\.webp/.exec(src || '');
+    const im = m && M.images[m[1]];
+    return im ? M.imgRemote(im, m[2] ? 330 : 1280) : '';
   };
   /* figura con didascalia, ingrandibile con un clic */
   M.figure = (key, opt = {}) => {

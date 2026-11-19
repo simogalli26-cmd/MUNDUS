@@ -103,6 +103,11 @@
     /* immagine non caricata (offline o file rimosso): mostra un riquadro con la didascalia */
     document.addEventListener('error', (e) => {
       const t = e.target; if (t.tagName !== 'IMG') return;
+      /* copia locale mancante: si prova una volta l'originale su Wikimedia Commons */
+      if (!t.dataset.fallback) {
+        const remote = M.imgFallback(t.getAttribute('src'));
+        if (remote) { t.dataset.fallback = '1'; t.src = remote; return; }
+      }
       const fr = t.closest('.fig__frame'); if (fr) fr.classList.add('is-broken');
       const th = t.closest('.cmp__thumb, .card__img'); if (th) t.style.visibility = 'hidden';
     }, true);

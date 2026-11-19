@@ -1,5 +1,6 @@
 /* Immagini: tutte da Wikimedia Commons (verificate il 19/11/2026: esistenza, autore, licenza).
-   Per aggiungerne una: copiare un elemento, cambiare la chiave e i campi.
+   Per aggiungerne una: copiare un elemento, cambiare la chiave e i campi, poi lanciare
+   python tools/fetch_images.py  per salvarne la copia locale in assets/img/ (finché manca, il sito usa l'originale online).
    "thumb" è la miniatura a 1280 px; "src" è l'originale quando è più piccolo. */
 MUNDUS.addImages({
   mappamundi: {
@@ -143,7 +144,7 @@ MUNDUS.addImages({
     page: 'https://commons.wikimedia.org/wiki/File:Cathars_expelled.JPG',
   },
   valdo: {
-    src: 'https://upload.wikimedia.org/wikipedia/commons/f/f2/Valdo_di_Lione_%2819th_century%29.jpg',
+    thumb: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Valdo_di_Lione_%2819th_century%29.jpg/500px-Valdo_di_Lione_%2819th_century%29.jpg',
     w: 868, h: 1024,
     cap: 'Pietro Valdo nella statua del monumento a Lutero di Worms: un ritratto immaginario dell\'Ottocento, nessuno sa che volto avesse.',
     credit: 'Disegno anonimo, XIX secolo · pubblico dominio',
