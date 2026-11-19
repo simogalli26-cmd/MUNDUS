@@ -1,0 +1,197 @@
+/* Capitolo III — La nascita e l'evoluzione dei Comuni. */
+MUNDUS.chapter({
+  id: 'comuni', n: 3, roman: 'III',
+  title: 'I Comuni',
+  kicker: 'Nascita, crisi e trasformazioni di un governo cittadino',
+  period: 'fine XI – XV secolo', span: [1085, 1434],
+  axis: 'Economia e società',
+  cover: 'buongoverno',
+  hook: 'Consoli, podestà, capitano del popolo, signore: ogni forma nasce per risolvere la crisi della precedente.',
+  question: 'Perché ogni forma di governo comunale entra in crisi, e come si passa alla successiva?',
+  lead: 'Tra la fine dell\'XI e il XII secolo, nell\'Italia centro-settentrionale, gli abitanti delle città si uniscono con un giuramento e cominciano a governarsi da soli. Nei due secoli successivi il Comune cambia più volte forma. Il filo per capirlo è semplice da dire e meno da ricordare: ogni soluzione funziona per un po\', poi crea un problema nuovo, e il problema prepara la soluzione successiva.',
+
+  sections: [
+    {
+      id: 'nascita', title: 'Perché nascono i Comuni',
+      blocks: [
+        { t: 'p', drop: true, x: 'All\'origine di un Comune c\'è un patto: un gruppo di cittadini giura di aiutarsi e di difendere insieme gli interessi della città. Il latino delle fonti lo chiama *coniuratio* o *commune*. Ne fanno parte i [[milites|milites]] (la piccola e media nobiltà che vive in città), i mercanti più ricchi, i giudici e i notai. All\'inizio non è un\'istituzione contro qualcuno, ma un modo di riempire un vuoto.' },
+        { t: 'list', items: [
+          '**Il vuoto di potere.** Nelle città italiane governavano i vescovi-conti. La [lotta per le investiture](#/capitolo/investiture) li indebolì: c\'erano vescovi scismatici, vescovi contestati dalla Pataria, sedi vacanti. I cittadini iniziano a gestire da sé la giustizia, le mura, i mercati.',
+          '**La ricchezza.** La [rinascita economica](#/capitolo/rinascita) ha creato gruppi sociali che hanno mezzi, interessi e competenze per governare.',
+          '**La distanza dell\'imperatore.** Il re d\'Italia è anche re di Germania e scende raramente a sud delle Alpi: per decenni nessuno contesta questa autonomia di fatto.',
+        ] },
+        { t: 'p', x: 'I primi consoli compaiono a **Pisa** negli anni Ottanta dell\'XI secolo, poi ad **Asti** (1095), **Milano** (1097), **Genova** (1099). Una particolarità italiana pesa su tutta la storia successiva: qui la nobiltà vive in città e partecipa al Comune, a differenza di quanto accade in Francia o nelle Fiandre. Il Comune italiano, inoltre, conquista il [[contado]], la campagna circostante, sottomette i signori rurali e li obbliga a risiedere in città. Così porta dentro le mura anche le rivalità tra famiglie aristocratiche.', side: { k: '1097', x: 'Prima attestazione dei consoli a Milano' } },
+        { t: 'source', id: 'src-frisinga', title: 'Uno sguardo tedesco sui Comuni italiani', author: 'Ottone di Frisinga, Gesta Friderici', date: '1157-1158',
+          it: [
+            'Amano la libertà a tal punto che, per sfuggire all\'arroganza del potere, si fanno governare dalla volontà di consoli piuttosto che di signori. E poiché tra loro si distinguono tre ordini, quello dei capitanei, quello dei valvassori e quello della plebe, per frenare la superbia i consoli si eleggono non da uno solo, ma da ciascuno di essi; e perché non si lascino prendere dalla brama di dominare, si cambiano quasi ogni anno.',
+            'Per avere i mezzi di tenere a freno i vicini, non disdegnano di innalzare al cingolo di cavaliere e alle cariche giovani di condizione inferiore e perfino artigiani delle spregevoli arti meccaniche, che gli altri popoli tengono lontani come la peste dalle attività più onorevoli.',
+          ],
+          orig: [
+            'Libertatem tantopere affectant, ut potestatis insolentiam fugiendo consulum potius quam imperantium regantur arbitrio. Cumque tres inter eos ordines, id est capitaneorum, vavassorum, plebis, esse noscantur, ad reprimendam superbiam non de uno, sed de singulis predicti consules eliguntur, ac, ne ad dominandi libidinem prorumpant, singulis pene annis variantur.',
+            'Ad comprimendos vicinos materiam non habentes, inferioris conditionis iuvenes vel quoslibet contemptibilium etiam mechanicarum artium opifices, quos ceterae gentes ab honestioribus et liberioribus studiis tamquam pestem propellunt, ad militiae cingulum vel dignitatum gradus assumere non dedignantur.',
+          ],
+          ref: 'Ottone di Frisinga, *Gesta Friderici I imperatoris*, II, 14 (estratti).',
+          note: 'Chi scrive è lo zio del Barbarossa, vescovo e principe tedesco. Descrive con precisione il sistema dei consoli e la rotazione annuale, ma con un misto di stupore e disprezzo: che degli artigiani diventino cavalieri gli sembra un disordine. È la mentalità con cui l\'impero guarderà ai Comuni nel [capitolo IV](#/capitolo/barbarossa).' },
+      ],
+    },
+    {
+      id: 'fasi', title: 'Quattro forme di governo, tre crisi',
+      blocks: [
+        { t: 'p', x: 'Prima di entrare nei dettagli conviene avere davanti l\'intero percorso. Seleziona ciascuna fase: per ognuna trovi chi governa, con quali organi, qual era il suo punto di forza e, soprattutto, **perché entra in crisi** e come se ne esce.' },
+        { t: 'stages', id: 'stages-comuni', title: 'Dal Comune consolare alla Signoria', intro: 'Le date sono indicative: le città italiane non hanno seguito tutte lo stesso ritmo.',
+          items: [
+            { n: 'I', name: 'Comune consolare', period: 'fine XI – fine XII sec.',
+              who: 'Un collegio di **consoli** (da due a più di dieci), eletti ogni anno tra le famiglie più importanti: milites, mercanti ricchi, giudici.',
+              organs: '**Consoli**, che governano, giudicano e guidano l\'esercito; **Consiglio** (detto anche «di credenza»), che li affianca; **Arengo** o parlamento, l\'assemblea di tutti i capifamiglia, convocata per le decisioni più gravi: guerre, paci, statuti.',
+              strength: 'È la prima forma di autogoverno: la città decide di sé, con magistrati scelti da lei e che cambiano spesso.',
+              crisis: 'I consoli appartengono alle stesse famiglie che si contendono il potere. Le rivalità tra **consorterie** (gruppi di famiglie alleate, con le loro torri) diventano scontri armati, e i consoli, che sono parte in causa, non possono fare da arbitri. Lo scontro con il **Barbarossa** aggrava tutto.',
+              out: 'Affidare il governo a **una persona estranea alle fazioni**: il podestà.' },
+            { n: 'II', name: 'Comune podestarile', period: 'fine XII – metà XIII sec.',
+              who: 'Un **podestà** forestiero, chiamato da un\'altra città, in carica sei mesi o un anno, stipendiato, con il suo seguito di giudici, notai e cavalieri.',
+              organs: 'Il podestà amministra la giustizia, mantiene l\'ordine e comanda le milizie. Le decisioni politiche restano ai **consigli** (maggiore e minore). Alla fine del mandato il suo operato è esaminato dal **sindacato**.',
+              strength: 'Imparzialità e competenza: il podestà è un professionista, spesso formato nel diritto a Bologna, che non ha parenti né interessi in città.',
+              crisis: 'Il podestà riporta l\'ordine tra le famiglie, ma **non rappresenta le forze nuove**: mercanti e artigiani organizzati nelle **Arti**, il «popolo», restano esclusi dal potere, che è ancora in mano ai grandi. Inoltre il podestà non ha un esercito suo e dipende dai consigli.',
+              out: 'Il **popolo** si organizza politicamente e militarmente, con un proprio capo.' },
+            { n: 'III', name: 'Comune di popolo', period: 'metà XIII sec.',
+              who: 'Accanto al podestà compare il **capitano del popolo**, con i suoi consigli. A Firenze, dal 1282, il governo è dei **Priori delle Arti**.',
+              organs: 'Le **Arti** (corporazioni di mestiere) e le **società armate** dei quartieri. Leggi contro la violenza dei **magnati**: a Firenze gli **Ordinamenti di giustizia** (1293) li escludono dalle cariche.',
+              strength: 'Allarga la partecipazione politica a chi produce la ricchezza della città e prova a frenare la violenza aristocratica.',
+              crisis: 'I conflitti non spariscono, cambiano forma: **popolo grasso** contro **popolo minuto**, magnati esclusi che reagiscono con la violenza, **guelfi e ghibellini** con le loro condanne all\'esilio, guerre continue con le città vicine. Molti cittadini cominciano a desiderare l\'ordine più della libertà.',
+              out: 'Concedere poteri straordinari, e poi permanenti, a **un solo uomo**.' },
+            { n: 'IV', name: 'Signoria', period: 'dalla metà del XIII sec., in tempi diversi',
+              who: 'Un **signore**, spesso un podestà o un capitano del popolo che ottiene il potere a vita e poi lo trasmette ai figli.',
+              organs: 'Le istituzioni comunali restano, ma svuotate: i consigli ratificano le decisioni del signore. Per legittimarsi il signore chiede all\'imperatore o al papa il titolo di **vicario**; più tardi compra un titolo nobiliare e la signoria diventa **principato**.',
+              strength: 'Stabilità, pace interna, una guida unica nelle guerre.',
+              crisis: 'La libertà comunale è perduta, ma non dappertutto né contemporaneamente: Venezia resta una repubblica, Firenze conserva a lungo le forme repubblicane, e i **Medici** vi si affermano soprattutto nel **Quattrocento**.',
+              out: '' },
+          ] },
+      ],
+    },
+    {
+      id: 'consolare', title: 'Il Comune consolare',
+      blocks: [
+        { t: 'p', x: 'Nel Comune consolare il potere è nelle mani di un collegio di **consoli**, il cui numero varia da città a città e di anno in anno. Restano in carica di solito un anno, e la breve durata è voluta: nessuno deve avere il tempo di trasformarsi in signore. Accanto a loro c\'è il **Consiglio**, formato dai cittadini più influenti, e l\'**Arengo**, l\'assemblea generale che si riunisce in piazza o in cattedrale per approvare le decisioni più importanti.', side: { k: 'Consoli', x: 'collegio, mandato annuale' } },
+        { t: 'p', x: 'Il sistema ha un limite strutturale. Le famiglie più potenti si organizzano in [[consorterie]], costruiscono torri altissime (a San Gimignano se ne vedono ancora alcune, a Bologna ne sorgevano decine) e si combattono per il controllo delle cariche. Quando i consoli sono essi stessi esponenti di una fazione, nessuno può garantire una giustizia imparziale. La città ha bisogno di qualcuno che stia sopra le parti.' },
+        { t: 'figure', img: 'buongoverno', size: 'wide' },
+      ],
+    },
+    {
+      id: 'podestarile', title: 'Il Comune podestarile',
+      blocks: [
+        { t: 'p', x: 'Negli ultimi decenni del XII secolo, e in modo generalizzato nel Duecento, le città affidano il governo a un **podestà**: un solo magistrato, chiamato da un\'altra città proprio perché estraneo alle rivalità locali. Il podestà arrivava con la sua *familia* di giudici, notai e cavalieri, giurava di rispettare gli statuti, non poteva avere parenti in città né sposarsi con donne del luogo, e alla fine del mandato veniva sottoposto al [[sindacato]], un controllo del suo operato. Si forma così un vero e proprio ceto di podestà di professione, che passano da una città all\'altra.', side: { k: 'Podestà', x: 'forestiero, 6-12 mesi, stipendiato' } },
+        { t: 'compare', id: 'cmp-consolare-podestarile', title: 'Comune consolare e Comune podestarile',
+          a: { name: 'Comune consolare', sub: 'fine XI – fine XII secolo' },
+          b: { name: 'Comune podestarile', sub: 'fine XII – metà XIII secolo' },
+          rows: [
+            { k: 'Chi governa', a: 'Un collegio di consoli, cittadini delle famiglie eminenti.', b: 'Un solo podestà, cittadino di un\'altra città.' },
+            { k: 'Durata', a: 'Di solito un anno.', b: 'Sei mesi o un anno.' },
+            { k: 'Rapporto con le fazioni', a: 'I consoli ne fanno parte: sono giudici e parte in causa.', b: 'Il podestà ne è estraneo per definizione: non ha parenti né interessi in città.' },
+            { k: 'Competenze', a: 'Governo, giustizia, guerra, insieme ai consigli.', b: 'Giustizia, ordine pubblico, comando militare; le scelte politiche restano ai consigli.' },
+            { k: 'Controllo', a: 'La rotazione annuale delle cariche.', b: 'Giuramento sugli statuti, divieti di legami locali, sindacato a fine mandato.' },
+            { k: 'Punto debole', a: 'Non riesce a fermare le lotte tra le famiglie aristocratiche.', b: 'Non dà spazio politico al popolo delle Arti e non ha una forza armata propria.' },
+          ],
+          end: 'Il podestà è la **risposta alla crisi del consolato**: se il problema sono le fazioni, si affida il governo a chi non appartiene a nessuna. Ma la risposta riguarda solo i conflitti tra i grandi; resta fuori chi, nel frattempo, si è arricchito e chiede di contare.' },
+        { t: 'precise', items: [
+          'Il **podestà comunale** è scelto dalla città e risponde alla città. I funzionari che il Barbarossa impose dopo Roncaglia si chiamavano anch\'essi *potestates*, ma erano l\'opposto: nominati dall\'imperatore per controllare i Comuni. La differenza è spiegata nel [capitolo IV](#/capitolo/barbarossa/podesta).',
+        ] },
+      ],
+    },
+    {
+      id: 'popolo', title: 'Arti, popolo e magnati',
+      blocks: [
+        { t: 'p', x: 'Le [[Arti]] (o corporazioni) sono associazioni di chi esercita lo stesso mestiere. Regolano la produzione, cioè la qualità dei prodotti, i prezzi, gli orari, il percorso da apprendista a lavorante e poi a maestro; difendono gli iscritti, li assistono nella malattia, hanno un santo patrono e una cappella. A Firenze le Arti sono ventuno: sette **maggiori** (tra cui Calimala, Lana, Cambio, Seta, Medici e Speziali, Giudici e Notai) e quattordici **minori**.' },
+        { t: 'concepts', items: [
+          { k: 'Magnati', s: 'i grandi', x: 'Le antiche famiglie aristocratiche e i nuovi ricchi che ne imitano lo stile di vita: torri, cavalli, vendette. Il popolo li considera la causa della violenza in città.' },
+          { k: 'Popolo grasso', s: 'le Arti maggiori', x: 'Mercanti, banchieri, imprenditori della lana, giudici e notai. Hanno ricchezza, istruzione e interessi internazionali.' },
+          { k: 'Popolo minuto', s: 'le Arti minori', x: 'Piccoli artigiani e bottegai: fabbri, calzolai, fornai, legnaioli. Partecipano alla politica in misura minore.' },
+          { k: 'Sottoposti', s: 'fuori dalle Arti', x: 'I lavoratori salariati senza diritti di corporazione, come i cardatori della lana. Nel 1378 a Firenze sarà la rivolta dei Ciompi.' },
+        ] },
+        { t: 'p', x: 'Dalla metà del Duecento il **popolo** si organizza in molte città come una forza politica, con un proprio magistrato, il [[capitano del popolo]], e con milizie di quartiere. A Firenze il «Primo popolo» governa dal ==1250==; dal 1282 il governo passa ai **Priori delle Arti**; nel ==1293== gli **Ordinamenti di giustizia** voluti da Giano della Bella escludono i magnati dalle cariche principali. Per partecipare alla vita pubblica bisogna essere iscritti a un\'Arte: è per questo che Dante, nel 1295, si iscrive all\'Arte dei Medici e Speziali.', side: { k: '1293', x: 'Ordinamenti di giustizia a Firenze' } },
+        { t: 'p', x: 'Il Comune di popolo allarga la partecipazione, ma non porta la pace. Il popolo grasso tende a chiudere il potere nelle mani delle Arti maggiori, il popolo minuto si sente escluso, i magnati reagiscono, e lo scontro tra **guelfi e ghibellini** (di cui si parla nel [capitolo V](#/capitolo/innocenzo/guelfi)) si sovrappone a tutto il resto. Le fazioni sconfitte vengono esiliate e cercano alleati fuori per rientrare: la città vive in uno stato di guerra quasi permanente.' },
+        { t: 'figure', img: 'bottega', size: 'inset' },
+      ],
+    },
+    {
+      id: 'signorie', title: 'Le Signorie',
+      blocks: [
+        { t: 'p', x: 'Quando i conflitti diventano insostenibili, i consigli o l\'arengo concedono a un uomo poteri straordinari: è spesso un podestà o un capitano del popolo che ha dimostrato di saper imporre l\'ordine, oppure il capo della fazione vincente. Poi i poteri diventano a vita, infine ereditari. Le istituzioni comunali non vengono abolite: continuano a riunirsi, ma decide il **signore**. Per avere una legittimità che il Comune non può dargli, il signore chiede all\'imperatore o al papa il titolo di [[vicario]]; quando riesce a ottenere un titolo di duca o di marchese, la signoria diventa **principato**.' },
+        { t: 'list', items: [
+          '**Ferrara**: Obizzo II d\'Este è acclamato signore nel 1264.',
+          '**Verona**: i Della Scala, da Mastino I (capitano del popolo dal 1262) a Cangrande, il protettore di Dante.',
+          '**Milano**: i Visconti prevalgono sui Della Torre nel 1277; Gian Galeazzo diventa duca nel 1395.',
+          '**Mantova**: i Gonzaga dal 1328; **Padova**: i Carraresi dal 1318.',
+          '**Firenze**: resta formalmente una repubblica; i Medici si affermano con Cosimo dal 1434, governando di fatto senza cambiare le istituzioni. Il titolo di duca arriva solo nel 1532.',
+          '**Venezia**: non diventa mai una signoria, ma una repubblica aristocratica fino al 1797.',
+        ] },
+        { t: 'precise', items: [
+          'Le Signorie **non nascono tutte nello stesso momento**: Ferrara è signoria a metà Duecento, Mantova nel Trecento, Firenze di fatto solo nel Quattrocento, Venezia mai.',
+          'I **Medici** si affermano a Firenze nel **Quattrocento** (Cosimo il Vecchio dal 1434, Lorenzo il Magnifico dal 1469), non nel Duecento.',
+        ] },
+      ],
+    },
+  ],
+
+  events: [
+    { id: 'ev-1085c', y: 1085, date: 'anni Ottanta dell\'XI secolo', title: 'I primi consoli a Pisa', place: 'pisa', people: [], x: 'Pisa è tra le prime città con un governo consolare, legato alla sua potenza marittima.' },
+    { id: 'ev-1097', y: 1097, date: '1097', title: 'Consoli a Milano', place: 'milano', people: [], major: true, x: 'Prima attestazione dei consoli nella città che diventerà la guida dei Comuni lombardi.' },
+    { id: 'ev-1190p', y: 1190, date: 'ultimi decenni del XII secolo', title: 'Si diffonde il podestà', place: 'bologna', people: [], x: 'Le città affidano il governo a un magistrato forestiero: è la risposta alle lotte tra le famiglie. Bologna forma i giuristi che faranno i podestà.' },
+    { id: 'ev-1250', y: 1250, date: '1250', title: 'Il Primo popolo a Firenze', place: 'firenze', people: [], x: 'Il popolo organizzato nelle Arti e nelle compagnie armate prende il governo, con un capitano del popolo.' },
+    { id: 'ev-1264', y: 1264, date: '1264', title: 'Gli Este signori di Ferrara', place: 'ferrara', people: ['Obizzo II d\'Este'], x: 'L\'arengo acclama Obizzo II signore perpetuo: una delle prime signorie stabili.' },
+    { id: 'ev-1277v', y: 1277, date: '21 gennaio 1277', title: 'I Visconti a Milano', place: 'milano', people: ['Ottone Visconti'], x: 'L\'arcivescovo Ottone Visconti sconfigge i Della Torre a Desio: inizia la signoria viscontea.' },
+    { id: 'ev-1293', y: 1293, date: '18 gennaio 1293', title: 'Ordinamenti di giustizia', place: 'firenze', people: ['Giano della Bella'], major: true, x: 'I magnati sono esclusi dal priorato; per governare bisogna essere iscritti a un\'Arte.' },
+    { id: 'ev-1328', y: 1328, date: '1328', title: 'I Gonzaga a Mantova', place: 'mantova', people: ['Luigi Gonzaga'], x: 'Una signoria che nasce in pieno Trecento: la cronologia delle signorie è tutt\'altro che uniforme.' },
+    { id: 'ev-1395', y: 1395, date: '1395', title: 'Milano ducato', place: 'milano', people: ['Gian Galeazzo Visconti'], x: 'Gian Galeazzo ottiene dall\'imperatore il titolo di duca: la signoria diventa principato.' },
+    { id: 'ev-1434', y: 1434, date: '1434', title: 'Cosimo de\' Medici a Firenze', place: 'firenze', people: ['Cosimo il Vecchio'], x: 'Rientrato dall\'esilio, Cosimo governa di fatto la città lasciando in vita le istituzioni repubblicane.' },
+  ],
+
+  glossary: [
+    { term: 'Comune', def: 'Associazione giurata dei cittadini che si governano attraverso magistrati eletti; per estensione, la città che si autogoverna.' },
+    { term: 'Milites', def: 'I cavalieri che vivono in città: piccola e media nobiltà (capitanei e valvassori), protagonista del primo Comune.' },
+    { term: 'Contado', def: 'Il territorio rurale intorno alla città, che il Comune conquista e governa.' },
+    { term: 'Consorterie', def: 'Gruppi di famiglie aristocratiche alleate, con torri, case fortificate e clientele armate.' },
+    { term: 'Arengo', def: 'L\'assemblea generale dei cittadini (capifamiglia) del Comune, convocata per le decisioni più importanti.' },
+    { term: 'Podestà', def: 'Magistrato unico, forestiero, in carica per un periodo breve e stipendiato, a cui il Comune affida giustizia e ordine pubblico.' },
+    { term: 'Sindacato', def: 'Il controllo dell\'operato del podestà alla fine del mandato: se aveva commesso abusi, poteva essere multato.' },
+    { term: 'Arti', def: 'Corporazioni di mestiere che regolano produzione, prezzi, formazione e assistenza dei loro membri.' },
+    { term: 'Popolo grasso', def: 'La parte più ricca del popolo: mercanti, banchieri, imprenditori, iscritti alle Arti maggiori.' },
+    { term: 'Popolo minuto', def: 'Piccoli artigiani e bottegai iscritti alle Arti minori.' },
+    { term: 'Magnati', def: 'Famiglie aristocratiche o di stile di vita cavalleresco, considerate violente e escluse dalle cariche dai governi di popolo.' },
+    { term: 'Capitano del popolo', def: 'Magistrato del popolo organizzato, affiancato al podestà; comanda le milizie popolari.' },
+    { term: 'Vicario', def: 'Titolo concesso dall\'imperatore (o dal papa) a un signore per governare in suo nome: dà legittimità alla signoria.' },
+    { term: 'Signoria', def: 'Forma di governo in cui un solo signore, spesso ereditario, controlla la città lasciando in vita solo formalmente le istituzioni comunali.' },
+  ],
+
+  study: {
+    questions: [
+      { q: 'Quali condizioni favoriscono la nascita dei Comuni in Italia?', a: ['Indebolimento dei vescovi-conti con la lotta per le investiture.', 'Ricchezza e nuovi gruppi sociali grazie alla rinascita economica.', 'Lontananza del potere imperiale.', 'Particolarità italiana: la nobiltà vive in città e partecipa al Comune.'] },
+      { q: 'Descrivi il Comune consolare e spiega perché entra in crisi.', a: ['Consoli eletti annualmente, Consiglio, Arengo.', 'Le famiglie aristocratiche si scontrano (consorterie, torri).', 'I consoli sono parte in causa: manca un arbitro imparziale.'] },
+      { q: 'Perché il podestà è forestiero e quali controlli subisce?', a: ['Per essere estraneo alle fazioni e quindi imparziale.', 'Mandato breve, stipendio, giuramento sugli statuti.', 'Divieto di legami locali; sindacato a fine mandato.'] },
+      { q: 'Che cosa sono popolo grasso, popolo minuto e magnati?', a: ['Popolo grasso: Arti maggiori, mercanti e banchieri.', 'Popolo minuto: Arti minori, artigiani e bottegai.', 'Magnati: famiglie aristocratiche escluse dal governo dagli Ordinamenti di giustizia (Firenze 1293).'] },
+      { q: 'Come si passa dal Comune di popolo alla Signoria?', a: ['Conflitti continui: grasso contro minuto, magnati, guelfi e ghibellini, esili, guerre.', 'Si concedono poteri straordinari a un capo, poi a vita, poi ereditari.', 'Il signore cerca legittimità con il vicariato; poi il principato.'] },
+      { q: 'Perché si dice che le Signorie non nascono tutte insieme?', a: ['Ferrara 1264, Milano 1277, Padova 1318, Mantova 1328.', 'Firenze resta repubblica: i Medici di fatto dal 1434.', 'Venezia non diventa mai signoria.'] },
+    ],
+    quiz: [
+      { q: 'Il podestà del Comune podestarile era di solito:', o: ['Un nobile della città eletto a vita', 'Un forestiero in carica per un periodo breve', 'Un funzionario nominato dall\'imperatore', 'Il vescovo della città'], ok: 1, why: 'Forestiero e temporaneo, per essere imparziale. Il funzionario imperiale è un\'altra cosa (cap. IV).' },
+      { q: 'Gli Ordinamenti di giustizia di Firenze (1293):', o: ['Istituiscono i consoli', 'Escludono i magnati dalle cariche principali', 'Fondano la signoria dei Medici', 'Aboliscono le Arti'], ok: 1, why: 'Voluti da Giano della Bella, riservano il governo agli iscritti alle Arti ed escludono i magnati.' },
+      { q: 'Quando si affermano i Medici a Firenze?', o: ['Nel XII secolo', 'Con il Primo popolo del 1250', 'Nel Quattrocento, con Cosimo dal 1434', 'Con gli Ordinamenti del 1293'], ok: 2, why: 'Firenze resta a lungo una repubblica; Cosimo il Vecchio la governa di fatto dal 1434.' },
+      { q: 'Perché il Comune consolare entra in crisi?', o: ['Perché l\'imperatore abolisce i consoli', 'Perché i consoli, membri delle famiglie in lotta, non sono imparziali', 'Perché il popolo minuto prende il potere', 'Perché i vescovi riprendono il controllo'], ok: 1, why: 'Le lotte tra consorterie richiedono un arbitro estraneo: il podestà.' },
+    ],
+  },
+
+  slides: [
+    { t: 'chapter' },
+    { t: 'points', title: 'Perché nascono i Comuni', img: 'buongoverno', pts: [
+      ['Vuoto di potere', 'i vescovi-conti indeboliti dalla lotta per le investiture.'],
+      ['Ricchezza', 'mercanti, giudici, notai e milites hanno mezzi e interessi.'],
+      ['Imperatore lontano', 'per decenni nessuno contesta l\'autonomia.'],
+    ] },
+    { t: 'points', title: 'Ogni crisi prepara la forma successiva', pts: [
+      ['Consoli', 'le famiglie si combattono: serve un arbitro.'],
+      ['Podestà', 'l\'ordine torna, ma il popolo resta escluso.'],
+      ['Popolo', 'nuovi conflitti: grasso, minuto, magnati, fazioni.'],
+      ['Signore', 'l\'ordine al prezzo della libertà.'],
+    ] },
+    { t: 'compare', ref: 'cmp-consolare-podestarile', rows: [0, 2, 5] },
+    { t: 'dates', items: [['1097', 'Consoli a Milano', 'il Comune consolare'], ['1250', 'Primo popolo', 'Firenze'], ['1293', 'Ordinamenti', 'i magnati esclusi'], ['1434', 'Cosimo de\' Medici', 'una signoria di fatto']] },
+  ],
+});
